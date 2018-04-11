@@ -1,6 +1,7 @@
 import { ListenOptions as NetListenOptions } from 'net';
 import { EventEmitter } from 'events';
 import { Server as HttpServer } from 'http';
+import { Server as HttpsServer } from 'https';
 
 import { Application as ExpressApp } from 'express';
 import { Server as ConnectApp } from 'connect';
@@ -22,7 +23,7 @@ export interface CoreListenOptions extends MeteorListenOptions {
 }
 
 export interface ListenOptions extends CoreListenOptions {
-  httpServer?: HttpServer;
+  httpServer?: HttpServer | HttpsServer;
   expressApp?: ExpressApp;
   connectApp?: ConnectApp;
   koaApp?: KoaApp;
