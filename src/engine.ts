@@ -40,7 +40,7 @@ export class ApolloEngine extends EventEmitter {
 
   private config: EngineConfig;
   private launcher: ApolloEngineLauncher;
-  private httpServer: HttpServer;
+  private httpServer: HttpServer | HttpsServer;
 
   // The constructor takes the underlying engineproxy config file. All options
   // specific to the Node API are passed to `listen` (or other entry point) to
@@ -60,7 +60,7 @@ export class ApolloEngine extends EventEmitter {
         'Must provide the port that your app will be accessible on as "port"',
       );
     }
-    let httpServer: HttpServer;
+    let httpServer: HttpServer | HttpsServer;
     let appsProvided = 0;
     if (options.httpServer) {
       httpServer = options.httpServer;
